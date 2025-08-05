@@ -11,9 +11,9 @@ Trino 的架构分为三层：
 ### （1）Coordinator（协调节点）
 - 角色：接收客户端请求，管理查询执行流程。
 - 核心功能：
--- SQL 解析：将 SQL 转换为逻辑计划（Logical Plan）。
--- 查询优化：基于成本优化器（Cost-Based Optimizer, CBO）生成分布式执行计划。
--- 任务调度：将任务分发给 Worker 节点。
--- 资源管理：通过 Resource Groups 控制并发查询的资源分配。
+  - SQL 解析：将 SQL 转换为逻辑计划（Logical Plan）。
+  - 查询优化：基于成本优化器（Cost-Based Optimizer, CBO）生成分布式执行计划。
+  - 任务调度：将任务分发给 Worker 节点。
+  - 资源管理：通过 Resource Groups 控制并发查询的资源分配。
 - 关键模块：
 SqlParser → Analyzer → Optimizer → Scheduler
