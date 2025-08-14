@@ -25,7 +25,7 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 public final class ExpressionTreeRewriter<C>
 {
     private final ExpressionRewriter<C> rewriter;
-    private final AstVisitor<Expression, ExpressionTreeRewriter.Context<C>> visitor;
+    private final AstVisitor<Expression, Context<C>> visitor;
 
     public static <T extends Expression> T rewriteWith(ExpressionRewriter<Void> rewriter, T node)
     {
@@ -68,7 +68,7 @@ public final class ExpressionTreeRewriter<C>
     }
 
     private class RewritingVisitor
-            extends AstVisitor<Expression, ExpressionTreeRewriter.Context<C>>
+            extends AstVisitor<Expression, Context<C>>
     {
         @Override
         protected Expression visitExpression(Expression node, Context<C> context)

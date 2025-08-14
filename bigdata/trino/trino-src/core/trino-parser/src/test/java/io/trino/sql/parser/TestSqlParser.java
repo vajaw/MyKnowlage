@@ -3785,19 +3785,19 @@ public class TestSqlParser
                         location(1, 1),
                         "VIEW",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 12), "foo", false), new Identifier(location(1, 16), "bar", false), new Identifier(location(1, 20), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 42), "qux", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 42), "qux", false))));
         assertThat(statement("ALTER VIEW foo.bar.baz SET AUTHORIZATION USER qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "VIEW",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 12), "foo", false), new Identifier(location(1, 16), "bar", false), new Identifier(location(1, 20), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 47), "qux", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 47), "qux", false))));
         assertThat(statement("ALTER VIEW foo.bar.baz SET AUTHORIZATION ROLE qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "VIEW",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 12), "foo", false), new Identifier(location(1, 16), "bar", false), new Identifier(location(1, 20), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 47), "qux", false))));
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 47), "qux", false))));
     }
 
     @Test
@@ -3808,19 +3808,19 @@ public class TestSqlParser
                         location(1, 1),
                         "MATERIALIZED VIEW",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 25), "foo", false), new Identifier(location(1, 29), "bar", false), new Identifier(location(1, 33), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 55), "qux", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 55), "qux", false))));
         assertThat(statement("ALTER MATERIALIZED VIEW foo.bar.baz SET AUTHORIZATION USER qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "MATERIALIZED VIEW",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 25), "foo", false), new Identifier(location(1, 29), "bar", false), new Identifier(location(1, 33), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 60), "qux", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 60), "qux", false))));
         assertThat(statement("ALTER MATERIALIZED VIEW foo.bar.baz SET AUTHORIZATION ROLE qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "MATERIALIZED VIEW",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 25), "foo", false), new Identifier(location(1, 29), "bar", false), new Identifier(location(1, 33), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 60), "qux", false))));
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 60), "qux", false))));
     }
 
     @Test
@@ -4233,19 +4233,19 @@ public class TestSqlParser
                         location(1, 1),
                         "TABLE",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 13), "foo", false), new Identifier(location(1, 17), "bar", false), new Identifier(location(1, 21), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 43), "qux", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 43), "qux", false))));
         assertThat(statement("ALTER TABLE foo.bar.baz SET AUTHORIZATION USER qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "TABLE",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 13), "foo", false), new Identifier(location(1, 17), "bar", false), new Identifier(location(1, 21), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 48), "qux", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 48), "qux", false))));
         assertThat(statement("ALTER TABLE foo.bar.baz SET AUTHORIZATION ROLE qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "TABLE",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 13), "foo", false), new Identifier(location(1, 17), "bar", false), new Identifier(location(1, 21), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 48), "qux", false))));
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 48), "qux", false))));
     }
 
     @Test
@@ -4256,19 +4256,19 @@ public class TestSqlParser
                         location(1, 1),
                         "QUARK",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 13), "foo", false), new Identifier(location(1, 17), "bar", false), new Identifier(location(1, 21), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 43), "qux", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 43), "qux", false))));
         assertThat(statement("ALTER QUARK foo.bar.baz SET AUTHORIZATION USER qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "QUARK",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 13), "foo", false), new Identifier(location(1, 17), "bar", false), new Identifier(location(1, 21), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 48), "qux", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 48), "qux", false))));
         assertThat(statement("ALTER QUARK foo.bar.baz SET AUTHORIZATION ROLE qux")).isEqualTo(
                 new SetAuthorizationStatement(
                         location(1, 1),
                         "QUARK",
                         QualifiedName.of(ImmutableList.of(new Identifier(location(1, 13), "foo", false), new Identifier(location(1, 17), "bar", false), new Identifier(location(1, 21), "baz", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 48), "qux", false))));
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 48), "qux", false))));
     }
 
     @Test
@@ -4314,49 +4314,49 @@ public class TestSqlParser
                         location(1, 1),
                         Optional.of(ImmutableList.of("INSERT", "DELETE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 25), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 30), "u", false)),
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 30), "u", false)),
                         false));
         assertThat(statement("GRANT UPDATE ON t TO u")).isEqualTo(
                 new Grant(
                         location(1, 1),
                         Optional.of(ImmutableList.of("UPDATE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 17), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 22), "u", false)),
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 22), "u", false)),
                         false));
         assertThat(statement("GRANT EXECUTE ON t TO u")).isEqualTo(
                 new Grant(
                         location(1, 1),
                         Optional.of(ImmutableList.of("EXECUTE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 18), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 23), "u", false)),
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 23), "u", false)),
                         false));
         assertThat(statement("GRANT SELECT ON t TO ROLE PUBLIC WITH GRANT OPTION")).isEqualTo(
                 new Grant(
                         location(1, 1),
                         Optional.of(ImmutableList.of("SELECT")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 17), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 27), "PUBLIC", false)),
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 27), "PUBLIC", false)),
                         true));
         assertThat(statement("GRANT ALL PRIVILEGES ON TABLE t TO USER u")).isEqualTo(
                 new Grant(
                         location(1, 1),
                         Optional.empty(),
                         new GrantObject(location(1, 1), Optional.of("TABLE"), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 31), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 41), "u", false)),
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 41), "u", false)),
                         false));
         assertThat(statement("GRANT DELETE ON \"t\" TO ROLE \"public\" WITH GRANT OPTION")).isEqualTo(
                 new Grant(
                         location(1, 1),
                         Optional.of(ImmutableList.of("DELETE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 17), "t", true))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 29), "public", true)),
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 29), "public", true)),
                         true));
         assertThat(statement("GRANT SELECT ON SCHEMA s TO USER u")).isEqualTo(
                 new Grant(
                         location(1, 1),
                         Optional.of(ImmutableList.of("SELECT")),
                         new GrantObject(location(1, 1), Optional.of("SCHEMA"), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 24), "s", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 34), "u", false)),
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 34), "u", false)),
                         false));
 
         // Branching
@@ -4369,7 +4369,7 @@ public class TestSqlParser
                                 Optional.of("TABLE"),
                                 QualifiedName.of(ImmutableList.of(new Identifier(location(1, 30), "t", false))),
                                 Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 35), "u", false)),
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 35), "u", false)),
                         false));
 
         assertThat(statement("GRANT INSERT, DELETE ON BRANCH dev IN SCHEMA t TO u")).isEqualTo(
@@ -4381,7 +4381,7 @@ public class TestSqlParser
                                 Optional.of("SCHEMA"),
                                 QualifiedName.of(ImmutableList.of(new Identifier(location(1, 46), "t", false))),
                                 Optional.of(new Identifier(location(1, 32), "dev", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 51), "u", false)),
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 51), "u", false)),
                         false));
 
         assertThat(statement("GRANT INSERT, DELETE ON BRANCH dev IN TABLE t TO u")).isEqualTo(
@@ -4393,7 +4393,7 @@ public class TestSqlParser
                                 Optional.of("TABLE"),
                                 QualifiedName.of(ImmutableList.of(new Identifier(location(1, 45), "t", false))),
                                 Optional.of(new Identifier(location(1, 32), "dev", false))),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 50), "u", false)),
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 50), "u", false)),
                         false));
     }
 
@@ -4405,25 +4405,25 @@ public class TestSqlParser
                         location(1, 1),
                         Optional.of(ImmutableList.of("INSERT", "DELETE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(List.of(new Identifier(location(1, 24), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 29), "u", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 29), "u", false))));
         assertThat(statement("DENY UPDATE ON t TO u")).isEqualTo(
                 new Deny(
                         location(1, 1),
                         Optional.of(ImmutableList.of("UPDATE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(List.of(new Identifier(location(1, 16), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 21), "u", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 21), "u", false))));
         assertThat(statement("DENY ALL PRIVILEGES ON TABLE t TO USER u")).isEqualTo(
                 new Deny(
                         location(1, 1),
                         Optional.empty(),
                         new GrantObject(location(1, 1), Optional.of("TABLE"), QualifiedName.of(List.of(new Identifier(location(1, 30), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 40), "u", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 40), "u", false))));
         assertThat(statement("DENY SELECT ON SCHEMA s TO USER u")).isEqualTo(
                 new Deny(
                         location(1, 1),
                         Optional.of(ImmutableList.of("SELECT")),
                         new GrantObject(location(1, 1), Optional.of("SCHEMA"), QualifiedName.of(List.of(new Identifier(location(1, 23), "s", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 33), "u", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 33), "u", false))));
     }
 
     @Test
@@ -4435,49 +4435,49 @@ public class TestSqlParser
                         false,
                         Optional.of(ImmutableList.of("INSERT", "DELETE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 26), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 33), "u", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 33), "u", false))));
         assertThat(statement("REVOKE UPDATE ON t FROM u")).isEqualTo(
                 new Revoke(
                         location(1, 1),
                         false,
                         Optional.of(ImmutableList.of("UPDATE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 18), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 25), "u", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 25), "u", false))));
         assertThat(statement("REVOKE EXECUTE ON t FROM u")).isEqualTo(
                 new Revoke(
                         location(1, 1),
                         false,
                         Optional.of(ImmutableList.of("EXECUTE")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 19), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 26), "u", false))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 26), "u", false))));
         assertThat(statement("REVOKE GRANT OPTION FOR SELECT ON t FROM ROLE PUBLIC")).isEqualTo(
                 new Revoke(
                         location(1, 1),
                         true,
                         Optional.of(ImmutableList.of("SELECT")),
                         new GrantObject(location(1, 1), Optional.empty(), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 35), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 47), "PUBLIC", false))));
+                        new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 47), "PUBLIC", false))));
         assertThat(statement("REVOKE ALL PRIVILEGES ON TABLE t FROM USER u")).isEqualTo(
                 new Revoke(
                         location(1, 1),
                         false,
                         Optional.empty(),
                         new GrantObject(location(1, 1), Optional.of("TABLE"), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 32), "t", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 44), "u", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 44), "u", false))));
         assertThat(statement("REVOKE DELETE ON TABLE \"t\" FROM \"u\"")).isEqualTo(
                 new Revoke(
                         location(1, 1),
                         false,
                         Optional.of(ImmutableList.of("DELETE")),
                         new GrantObject(location(1, 1), Optional.of("TABLE"), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 24), "t", true))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 33), "u", true))));
+                        new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 33), "u", true))));
         assertThat(statement("REVOKE SELECT ON SCHEMA s FROM USER u")).isEqualTo(
                 new Revoke(
                         location(1, 1),
                         false,
                         Optional.of(ImmutableList.of("SELECT")),
                         new GrantObject(location(1, 1), Optional.of("SCHEMA"), QualifiedName.of(ImmutableList.of(new Identifier(location(1, 25), "s", false))), Optional.empty()),
-                        new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 37), "u", false))));
+                        new PrincipalSpecification(Type.USER, new Identifier(location(1, 37), "u", false))));
     }
 
     @Test
@@ -5560,7 +5560,7 @@ public class TestSqlParser
                         new Identifier(location(1, 13), "role1", false),
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 30), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 30), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("CREATE ROLE \"role\" WITH ADMIN \"admin\"")).isEqualTo(
                 new CreateRole(
@@ -5568,7 +5568,7 @@ public class TestSqlParser
                         new Identifier(location(1, 13), "role", true),
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 31), "admin", true))))),
+                                Optional.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 31), "admin", true))))),
                         Optional.empty()));
         assertThat(statement("CREATE ROLE \"ro le\" WITH ADMIN \"ad min\"")).isEqualTo(
                 new CreateRole(
@@ -5576,7 +5576,7 @@ public class TestSqlParser
                         new Identifier(location(1, 13), "ro le", true),
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 32), "ad min", true))))),
+                                Optional.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 32), "ad min", true))))),
                         Optional.empty()));
         assertThat(statement("CREATE ROLE \"!@#$%^&*'\" WITH ADMIN \"ад\"\"мін\"")).isEqualTo(
                 new CreateRole(
@@ -5584,7 +5584,7 @@ public class TestSqlParser
                         new Identifier(location(1, 13), "!@#$%^&*'", true),
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 36), "ад\"мін", true))))),
+                                Optional.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 36), "ад\"мін", true))))),
                         Optional.empty()));
         assertThat(statement("CREATE ROLE role2 WITH ADMIN USER admin1")).isEqualTo(
                 new CreateRole(
@@ -5592,7 +5592,7 @@ public class TestSqlParser
                         new Identifier(location(1, 13), "role2", false),
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 35), "admin1", false))))),
+                                Optional.of(new PrincipalSpecification(Type.USER, new Identifier(location(1, 35), "admin1", false))))),
                         Optional.empty()));
         assertThat(statement("CREATE ROLE role2 WITH ADMIN ROLE role1")).isEqualTo(
                 new CreateRole(
@@ -5600,7 +5600,7 @@ public class TestSqlParser
                         new Identifier(location(1, 13), "role2", false),
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 35), "role1", false))))),
+                                Optional.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 35), "role1", false))))),
                         Optional.empty()));
         assertThat(statement("CREATE ROLE role2 WITH ADMIN CURRENT_USER")).isEqualTo(
                 new CreateRole(
@@ -5650,7 +5650,7 @@ public class TestSqlParser
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 16), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 16), "user1", false))),
                         false,
                         Optional.empty(),
                         Optional.empty()));
@@ -5662,9 +5662,9 @@ public class TestSqlParser
                                 new Identifier(location(1, 14), "role2", false),
                                 new Identifier(location(1, 21), "role3", false)),
                         ImmutableSet.of(
-                                new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 30), "user1", false)),
-                                new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 42), "user2", false)),
-                                new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 54), "role4", false))),
+                                new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 30), "user1", false)),
+                                new PrincipalSpecification(Type.USER, new Identifier(location(1, 42), "user2", false)),
+                                new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 54), "role4", false))),
                         true,
                         Optional.empty(),
                         Optional.empty()));
@@ -5672,57 +5672,57 @@ public class TestSqlParser
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 16), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 16), "user1", false))),
                         true,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 51), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 51), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("GRANT role1 TO USER user1 WITH ADMIN OPTION GRANTED BY USER admin")).isEqualTo(
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 21), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.USER, new Identifier(location(1, 21), "user1", false))),
                         true,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 61), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.USER, new Identifier(location(1, 61), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("GRANT role1 TO ROLE role2 WITH ADMIN OPTION GRANTED BY ROLE admin")).isEqualTo(
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 21), "role2", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 21), "role2", false))),
                         true,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 61), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 61), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("GRANT role1 TO ROLE role2 GRANTED BY ROLE admin")).isEqualTo(
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 21), "role2", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 21), "role2", false))),
                         false,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 43), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 43), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("GRANT \"role1\" TO ROLE \"role2\" GRANTED BY ROLE \"admin\"")).isEqualTo(
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", true)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 23), "role2", true))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 23), "role2", true))),
                         false,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 47), "admin", true))))),
+                                Optional.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 47), "admin", true))))),
                         Optional.empty()));
         assertThat(statement("GRANT role1 TO user1 IN my_catalog")).isEqualTo(
                 new GrantRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 7), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 16), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 16), "user1", false))),
                         false,
                         Optional.empty(),
                         Optional.of(new Identifier(location(1, 25), "my_catalog", false))));
@@ -5735,7 +5735,7 @@ public class TestSqlParser
                 new RevokeRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 8), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 19), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 19), "user1", false))),
                         false,
                         Optional.empty(),
                         Optional.empty()));
@@ -5744,9 +5744,9 @@ public class TestSqlParser
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 25), "role1", false), new Identifier(location(1, 32), "role2", false), new Identifier(location(1, 39), "role3", false)),
                         ImmutableSet.of(
-                                new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 50), "user1", false)),
-                                new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 62), "user2", false)),
-                                new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 74), "role4", false))),
+                                new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 50), "user1", false)),
+                                new PrincipalSpecification(Type.USER, new Identifier(location(1, 62), "user2", false)),
+                                new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 74), "role4", false))),
                         true,
                         Optional.empty(),
                         Optional.empty()));
@@ -5754,47 +5754,47 @@ public class TestSqlParser
                 new RevokeRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 25), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 36), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 36), "user1", false))),
                         true,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 53), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 53), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("REVOKE ADMIN OPTION FOR role1 FROM USER user1 GRANTED BY USER admin")).isEqualTo(
                 new RevokeRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 25), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 41), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.USER, new Identifier(location(1, 41), "user1", false))),
                         true,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.USER, new Identifier(location(1, 63), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.USER, new Identifier(location(1, 63), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("REVOKE role1 FROM ROLE role2 GRANTED BY ROLE admin")).isEqualTo(
                 new RevokeRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 8), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 24), "role2", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 24), "role2", false))),
                         false,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 46), "admin", false))))),
+                                Optional.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 46), "admin", false))))),
                         Optional.empty()));
         assertThat(statement("REVOKE \"role1\" FROM ROLE \"role2\" GRANTED BY ROLE \"admin\"")).isEqualTo(
                 new RevokeRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 8), "role1", true)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 26), "role2", true))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 26), "role2", true))),
                         false,
                         Optional.of(new GrantorSpecification(
                                 GrantorSpecification.Type.PRINCIPAL,
-                                Optional.of(new PrincipalSpecification(PrincipalSpecification.Type.ROLE, new Identifier(location(1, 50), "admin", true))))),
+                                Optional.of(new PrincipalSpecification(Type.ROLE, new Identifier(location(1, 50), "admin", true))))),
                         Optional.empty()));
         assertThat(statement("REVOKE role1 FROM user1 IN my_catalog")).isEqualTo(
                 new RevokeRoles(
                         location(1, 1),
                         ImmutableSet.of(new Identifier(location(1, 8), "role1", false)),
-                        ImmutableSet.of(new PrincipalSpecification(PrincipalSpecification.Type.UNSPECIFIED, new Identifier(location(1, 19), "user1", false))),
+                        ImmutableSet.of(new PrincipalSpecification(Type.UNSPECIFIED, new Identifier(location(1, 19), "user1", false))),
                         false,
                         Optional.empty(),
                         Optional.of(new Identifier(location(1, 28), "my_catalog", false))));
