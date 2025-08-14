@@ -66,4 +66,13 @@ public class CalcAstBuilder
 
         return new BinaryOpNode(left, op, right);
     }
+
+    @Override
+    public CalcNode visitEXP(CalcBaseParser.EXPContext ctx)
+    {
+        CalcNode left = ctx.expr(0).accept(this);
+        CalcNode right = ctx.expr(1).accept(this);
+        BinaryOpNode.Operator op = BinaryOpNode.Operator.EXP;
+        return new BinaryOpNode(left, op, right);
+    }
 }

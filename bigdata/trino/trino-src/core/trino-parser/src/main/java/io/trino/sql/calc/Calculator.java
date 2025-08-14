@@ -41,23 +41,21 @@ public class Calculator
 
     public static void main(String[] args)
     {
-        String expression = "10 + ((5 * 2) / 3)";
+        String expression = "10 + 2 * 2 * 2 * 2 * 2 * 2 / 2 ^ 2";
+        String expression2 = "10 + 2 * 2 * 2 * 2 * 2 * 2 / 2 ^ 2 ^ 2";
+        String expression3 = "10 + 2 * 2 * 2 * 2 * 2 * 2 / 2 ^ 2 ^ 2 ^ 2";
         try {
-            double result = new Calculator().calculate(expression);
+            Calculator calculator = new Calculator();
+            double result = calculator.calculate(expression);
+            double result2 = calculator.calculate(expression2);
+            double result3 = calculator.calculate(expression3);
             System.out.println(expression + " = " + result);
-            // 1、将 g4 文件中 */ +- 位置对调，探索优先级:
-            // case 1
-            //      String expression = "10 + 5 * 2 / 3";
-            //      输出: 10 + 5 * 2 / 3 = 10.0
-            //      + > */
-            // case 2
-            //      String expression = "10 + (5 * 2) / 3";
-            //      输出: 10 + (5 * 2) / 3 = 6.666666666666667
-            //      () > + > */
-            // case 3
-            //      String expression = "10 + ((5 * 2) / 3)";
-            //      输出: 10 + ((5 * 2) / 3) = 13.333333333333334
-            //      () > + > */
+            System.out.println(expression2 + " = " + result2);
+            System.out.println(expression2 + " = " + result3);
+            // print :
+            // 10 + 2 * 2 * 2 * 2 * 2 * 2 / 2 ^ 2 = 26.0
+            // 10 + 2 * 2 * 2 * 2 * 2 * 2 / 2 ^ 2 ^ 2 = 14.0
+            // 10 + 2 * 2 * 2 * 2 * 2 * 2 / 2 ^ 2 ^ 2 = 10.25
         }
         catch (Exception e) {
             System.err.println("计算错误: " + e.getMessage());

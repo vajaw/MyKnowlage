@@ -17,19 +17,19 @@ public interface CalcBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProg(CalcBaseParser.ProgContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code AddSub}
-	 * labeled alternative in {@link CalcBaseParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAddSub(CalcBaseParser.AddSubContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code MulDiv}
 	 * labeled alternative in {@link CalcBaseParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMulDiv(CalcBaseParser.MulDivContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AddSub}
+	 * labeled alternative in {@link CalcBaseParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddSub(CalcBaseParser.AddSubContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Parens}
 	 * labeled alternative in {@link CalcBaseParser#expr}.
@@ -44,4 +44,11 @@ public interface CalcBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNum(CalcBaseParser.NumContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code EXP}
+	 * labeled alternative in {@link CalcBaseParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEXP(CalcBaseParser.EXPContext ctx);
 }

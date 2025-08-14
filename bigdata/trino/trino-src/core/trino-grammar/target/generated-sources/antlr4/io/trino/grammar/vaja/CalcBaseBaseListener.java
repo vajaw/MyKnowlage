@@ -29,18 +29,6 @@ public class CalcBaseBaseListener implements CalcBaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAddSub(CalcBaseParser.AddSubContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddSub(CalcBaseParser.AddSubContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterMulDiv(CalcBaseParser.MulDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -48,6 +36,18 @@ public class CalcBaseBaseListener implements CalcBaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMulDiv(CalcBaseParser.MulDivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAddSub(CalcBaseParser.AddSubContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAddSub(CalcBaseParser.AddSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -72,6 +72,18 @@ public class CalcBaseBaseListener implements CalcBaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNum(CalcBaseParser.NumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEXP(CalcBaseParser.EXPContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEXP(CalcBaseParser.EXPContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

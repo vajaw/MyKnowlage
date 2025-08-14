@@ -17,10 +17,11 @@
  // 语法规则
  prog: expr+ ;
 
- expr: expr op=('+'|'-') expr   # AddSub
-     | expr op=('*'|'/') expr   # MulDiv
-     | NUMBER                   # Num
-     | '(' expr ')'             # Parens
+ expr: expr '^'<assoc=right> expr   # EXP
+     | expr op=('*'|'/') expr       # MulDiv
+     | expr op=('+'|'-') expr       # AddSub
+     | NUMBER                       # Num
+     | '(' expr ')'                 # Parens
      ;
 
  // 词法规则

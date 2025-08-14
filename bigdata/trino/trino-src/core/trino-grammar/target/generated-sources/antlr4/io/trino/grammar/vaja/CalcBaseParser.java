@@ -17,7 +17,7 @@ public class CalcBaseParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, MUL=3, DIV=4, ADD=5, SUB=6, NUMBER=7, WS=8;
+		T__0=1, T__1=2, T__2=3, MUL=4, DIV=5, ADD=6, SUB=7, NUMBER=8, WS=9;
 	public static final int
 		RULE_prog = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -29,13 +29,13 @@ public class CalcBaseParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'('", "')'", "'*'", "'/'", "'+'", "'-'"
+			null, "'^'", "'('", "')'", "'*'", "'/'", "'+'", "'-'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "MUL", "DIV", "ADD", "SUB", "NUMBER", "WS"
+			null, null, null, null, "MUL", "DIV", "ADD", "SUB", "NUMBER", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -136,7 +136,7 @@ public class CalcBaseParser extends Parser {
 				setState(7); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==T__0 || _la==NUMBER );
+			} while ( _la==T__1 || _la==NUMBER );
 			}
 		}
 		catch (RecognitionException re) {
@@ -163,32 +163,6 @@ public class CalcBaseParser extends Parser {
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
-	public static class AddSubContext extends ExprContext {
-		public Token op;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode ADD() { return getToken(CalcBaseParser.ADD, 0); }
-		public TerminalNode SUB() { return getToken(CalcBaseParser.SUB, 0); }
-		public AddSubContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).enterAddSub(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).exitAddSub(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitAddSub(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class MulDivContext extends ExprContext {
 		public Token op;
 		public List<ExprContext> expr() {
@@ -211,6 +185,32 @@ public class CalcBaseParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitMulDiv(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class AddSubContext extends ExprContext {
+		public Token op;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode ADD() { return getToken(CalcBaseParser.ADD, 0); }
+		public TerminalNode SUB() { return getToken(CalcBaseParser.SUB, 0); }
+		public AddSubContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).enterAddSub(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).exitAddSub(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitAddSub(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -252,6 +252,29 @@ public class CalcBaseParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class EXPContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public EXPContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).enterEXP(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).exitEXP(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitEXP(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final ExprContext expr() throws RecognitionException {
 		return expr(0);
@@ -282,24 +305,24 @@ public class CalcBaseParser extends Parser {
 				match(NUMBER);
 				}
 				break;
-			case T__0:
+			case T__1:
 				{
 				_localctx = new ParensContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(11);
-				match(T__0);
+				match(T__1);
 				setState(12);
 				expr(0);
 				setState(13);
-				match(T__1);
+				match(T__2);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(25);
+			setState(28);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -307,28 +330,19 @@ public class CalcBaseParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(23);
+					setState(26);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
-						_localctx = new AddSubContext(new ExprContext(_parentctx, _parentState));
+						_localctx = new EXPContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(17);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
 						setState(18);
-						((AddSubContext)_localctx).op = _input.LT(1);
-						_la = _input.LA(1);
-						if ( !(_la==ADD || _la==SUB) ) {
-							((AddSubContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-						}
-						else {
-							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-							_errHandler.reportMatch(this);
-							consume();
-						}
+						match(T__0);
 						setState(19);
-						expr(5);
+						expr(6);
 						}
 						break;
 					case 2:
@@ -336,7 +350,7 @@ public class CalcBaseParser extends Parser {
 						_localctx = new MulDivContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(20);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						setState(21);
 						((MulDivContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
@@ -349,13 +363,34 @@ public class CalcBaseParser extends Parser {
 							consume();
 						}
 						setState(22);
+						expr(5);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new AddSubContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(23);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(24);
+						((AddSubContext)_localctx).op = _input.LT(1);
+						_la = _input.LA(1);
+						if ( !(_la==ADD || _la==SUB) ) {
+							((AddSubContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(25);
 						expr(4);
 						}
 						break;
 					}
 					} 
 				}
-				setState(27);
+				setState(30);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
@@ -382,36 +417,40 @@ public class CalcBaseParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 4);
+			return precpred(_ctx, 5);
 		case 1:
+			return precpred(_ctx, 4);
+		case 2:
 			return precpred(_ctx, 3);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\b\u001d\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
+		"\u0004\u0001\t \u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
 		"\u0000\u0004\u0000\u0006\b\u0000\u000b\u0000\f\u0000\u0007\u0001\u0001"+
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001"+
 		"\u0010\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0005\u0001\u0018\b\u0001\n\u0001\f\u0001\u001b\t\u0001\u0001"+
-		"\u0001\u0000\u0001\u0002\u0002\u0000\u0002\u0000\u0002\u0001\u0000\u0005"+
-		"\u0006\u0001\u0000\u0003\u0004\u001e\u0000\u0005\u0001\u0000\u0000\u0000"+
-		"\u0002\u000f\u0001\u0000\u0000\u0000\u0004\u0006\u0003\u0002\u0001\u0000"+
-		"\u0005\u0004\u0001\u0000\u0000\u0000\u0006\u0007\u0001\u0000\u0000\u0000"+
-		"\u0007\u0005\u0001\u0000\u0000\u0000\u0007\b\u0001\u0000\u0000\u0000\b"+
-		"\u0001\u0001\u0000\u0000\u0000\t\n\u0006\u0001\uffff\uffff\u0000\n\u0010"+
-		"\u0005\u0007\u0000\u0000\u000b\f\u0005\u0001\u0000\u0000\f\r\u0003\u0002"+
-		"\u0001\u0000\r\u000e\u0005\u0002\u0000\u0000\u000e\u0010\u0001\u0000\u0000"+
-		"\u0000\u000f\t\u0001\u0000\u0000\u0000\u000f\u000b\u0001\u0000\u0000\u0000"+
-		"\u0010\u0019\u0001\u0000\u0000\u0000\u0011\u0012\n\u0004\u0000\u0000\u0012"+
-		"\u0013\u0007\u0000\u0000\u0000\u0013\u0018\u0003\u0002\u0001\u0005\u0014"+
-		"\u0015\n\u0003\u0000\u0000\u0015\u0016\u0007\u0001\u0000\u0000\u0016\u0018"+
-		"\u0003\u0002\u0001\u0004\u0017\u0011\u0001\u0000\u0000\u0000\u0017\u0014"+
-		"\u0001\u0000\u0000\u0000\u0018\u001b\u0001\u0000\u0000\u0000\u0019\u0017"+
-		"\u0001\u0000\u0000\u0000\u0019\u001a\u0001\u0000\u0000\u0000\u001a\u0003"+
-		"\u0001\u0000\u0000\u0000\u001b\u0019\u0001\u0000\u0000\u0000\u0004\u0007"+
-		"\u000f\u0017\u0019";
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0005\u0001\u001b\b\u0001"+
+		"\n\u0001\f\u0001\u001e\t\u0001\u0001\u0001\u0000\u0001\u0002\u0002\u0000"+
+		"\u0002\u0000\u0002\u0001\u0000\u0004\u0005\u0001\u0000\u0006\u0007\"\u0000"+
+		"\u0005\u0001\u0000\u0000\u0000\u0002\u000f\u0001\u0000\u0000\u0000\u0004"+
+		"\u0006\u0003\u0002\u0001\u0000\u0005\u0004\u0001\u0000\u0000\u0000\u0006"+
+		"\u0007\u0001\u0000\u0000\u0000\u0007\u0005\u0001\u0000\u0000\u0000\u0007"+
+		"\b\u0001\u0000\u0000\u0000\b\u0001\u0001\u0000\u0000\u0000\t\n\u0006\u0001"+
+		"\uffff\uffff\u0000\n\u0010\u0005\b\u0000\u0000\u000b\f\u0005\u0002\u0000"+
+		"\u0000\f\r\u0003\u0002\u0001\u0000\r\u000e\u0005\u0003\u0000\u0000\u000e"+
+		"\u0010\u0001\u0000\u0000\u0000\u000f\t\u0001\u0000\u0000\u0000\u000f\u000b"+
+		"\u0001\u0000\u0000\u0000\u0010\u001c\u0001\u0000\u0000\u0000\u0011\u0012"+
+		"\n\u0005\u0000\u0000\u0012\u0013\u0005\u0001\u0000\u0000\u0013\u001b\u0003"+
+		"\u0002\u0001\u0006\u0014\u0015\n\u0004\u0000\u0000\u0015\u0016\u0007\u0000"+
+		"\u0000\u0000\u0016\u001b\u0003\u0002\u0001\u0005\u0017\u0018\n\u0003\u0000"+
+		"\u0000\u0018\u0019\u0007\u0001\u0000\u0000\u0019\u001b\u0003\u0002\u0001"+
+		"\u0004\u001a\u0011\u0001\u0000\u0000\u0000\u001a\u0014\u0001\u0000\u0000"+
+		"\u0000\u001a\u0017\u0001\u0000\u0000\u0000\u001b\u001e\u0001\u0000\u0000"+
+		"\u0000\u001c\u001a\u0001\u0000\u0000\u0000\u001c\u001d\u0001\u0000\u0000"+
+		"\u0000\u001d\u0003\u0001\u0000\u0000\u0000\u001e\u001c\u0001\u0000\u0000"+
+		"\u0000\u0004\u0007\u000f\u001a\u001c";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -54,6 +54,7 @@ public class BinaryOpNode
         ADD,
         SUB,
         MUL,
-        DIV
+        DIV,
+        EXP
     }
 }
