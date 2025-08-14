@@ -17,8 +17,8 @@
  // 语法规则
  prog: expr+ ;
 
- expr: expr op=('*'|'/') expr   # MulDiv
-     | expr op=('+'|'-') expr   # AddSub
+ expr: expr op=('+'|'-') expr   # AddSub
+     | expr op=('*'|'/') expr   # MulDiv
      | NUMBER                   # Num
      | '(' expr ')'             # Parens
      ;

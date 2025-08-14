@@ -163,32 +163,6 @@ public class CalcBaseParser extends Parser {
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
-	public static class MulDivContext extends ExprContext {
-		public Token op;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode MUL() { return getToken(CalcBaseParser.MUL, 0); }
-		public TerminalNode DIV() { return getToken(CalcBaseParser.DIV, 0); }
-		public MulDivContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).enterMulDiv(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).exitMulDiv(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitMulDiv(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class AddSubContext extends ExprContext {
 		public Token op;
 		public List<ExprContext> expr() {
@@ -211,6 +185,32 @@ public class CalcBaseParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitAddSub(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class MulDivContext extends ExprContext {
+		public Token op;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode MUL() { return getToken(CalcBaseParser.MUL, 0); }
+		public TerminalNode DIV() { return getToken(CalcBaseParser.DIV, 0); }
+		public MulDivContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).enterMulDiv(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalcBaseListener ) ((CalcBaseListener)listener).exitMulDiv(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CalcBaseVisitor ) return ((CalcBaseVisitor<? extends T>)visitor).visitMulDiv(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -312,15 +312,15 @@ public class CalcBaseParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
-						_localctx = new MulDivContext(new ExprContext(_parentctx, _parentState));
+						_localctx = new AddSubContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(17);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						setState(18);
-						((MulDivContext)_localctx).op = _input.LT(1);
+						((AddSubContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !(_la==MUL || _la==DIV) ) {
-							((MulDivContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+						if ( !(_la==ADD || _la==SUB) ) {
+							((AddSubContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 						}
 						else {
 							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
@@ -333,15 +333,15 @@ public class CalcBaseParser extends Parser {
 						break;
 					case 2:
 						{
-						_localctx = new AddSubContext(new ExprContext(_parentctx, _parentState));
+						_localctx = new MulDivContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(20);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						setState(21);
-						((AddSubContext)_localctx).op = _input.LT(1);
+						((MulDivContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !(_la==ADD || _la==SUB) ) {
-							((AddSubContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+						if ( !(_la==MUL || _la==DIV) ) {
+							((MulDivContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 						}
 						else {
 							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
@@ -395,8 +395,8 @@ public class CalcBaseParser extends Parser {
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001"+
 		"\u0010\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0001\u0001\u0005\u0001\u0018\b\u0001\n\u0001\f\u0001\u001b\t\u0001\u0001"+
-		"\u0001\u0000\u0001\u0002\u0002\u0000\u0002\u0000\u0002\u0001\u0000\u0003"+
-		"\u0004\u0001\u0000\u0005\u0006\u001e\u0000\u0005\u0001\u0000\u0000\u0000"+
+		"\u0001\u0000\u0001\u0002\u0002\u0000\u0002\u0000\u0002\u0001\u0000\u0005"+
+		"\u0006\u0001\u0000\u0003\u0004\u001e\u0000\u0005\u0001\u0000\u0000\u0000"+
 		"\u0002\u000f\u0001\u0000\u0000\u0000\u0004\u0006\u0003\u0002\u0001\u0000"+
 		"\u0005\u0004\u0001\u0000\u0000\u0000\u0006\u0007\u0001\u0000\u0000\u0000"+
 		"\u0007\u0005\u0001\u0000\u0000\u0000\u0007\b\u0001\u0000\u0000\u0000\b"+

@@ -25,14 +25,14 @@ public class CalcBaseBaseVisitor<T> extends AbstractParseTreeVisitor<T> implemen
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMulDiv(CalcBaseParser.MulDivContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAddSub(CalcBaseParser.AddSubContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAddSub(CalcBaseParser.AddSubContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMulDiv(CalcBaseParser.MulDivContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

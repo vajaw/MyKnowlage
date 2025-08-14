@@ -18,18 +18,6 @@ public interface CalcBaseListener extends ParseTreeListener {
 	 */
 	void exitProg(CalcBaseParser.ProgContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code MulDiv}
-	 * labeled alternative in {@link CalcBaseParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterMulDiv(CalcBaseParser.MulDivContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code MulDiv}
-	 * labeled alternative in {@link CalcBaseParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitMulDiv(CalcBaseParser.MulDivContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code AddSub}
 	 * labeled alternative in {@link CalcBaseParser#expr}.
 	 * @param ctx the parse tree
@@ -41,6 +29,18 @@ public interface CalcBaseListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAddSub(CalcBaseParser.AddSubContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MulDiv}
+	 * labeled alternative in {@link CalcBaseParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterMulDiv(CalcBaseParser.MulDivContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MulDiv}
+	 * labeled alternative in {@link CalcBaseParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitMulDiv(CalcBaseParser.MulDivContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Parens}
 	 * labeled alternative in {@link CalcBaseParser#expr}.
