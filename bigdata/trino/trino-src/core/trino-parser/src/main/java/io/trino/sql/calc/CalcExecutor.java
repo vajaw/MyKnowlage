@@ -41,7 +41,7 @@ public class CalcExecutor
                 }
                 return left / right;
             case EXP:
-                return Math.pow(left,right);
+                return Math.pow(left, right);
             default:
                 throw new UnsupportedOperationException("Unknown operator");
         }

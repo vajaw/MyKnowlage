@@ -1,0 +1,10 @@
+- java Annotation
+- java Reflection
+- java Thread
+- java Runnable
+- java Callable
+- antlr4 实现计算器
+- 访问者模式
+- jvm 参数 --todo
+- trino EmbedVersion -- todo
+- io.airlift.bytecode ClassDefinition -- todo 
