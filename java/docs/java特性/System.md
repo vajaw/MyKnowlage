@@ -71,15 +71,32 @@ java.home = /usr/lib/jvm/java-17-openjdk
 ...
 ```
 
+### **6. JVM 设置参数**
+以下 -X -XX 设置的参数，不能被`System.getProperty()` 方法读取到。
+#### **(1) 标准参数（`-D` 系列）**
+- **作用范围**：用于设置 Java 应用程序的 **系统属性**，这些属性可以通过 `System.getProperty()` 方法在运行时获取。
+- **特点**：
+  - 主要用于应用程序级别的配置（与 JVM 内部实现无关）。
+  - 可以在应用代码中动态读取。
+  - 示例：
+    ```bash
+    java -Dmy.property=value MyApp
+    ```
+    在代码中可以通过以下方式获取：
+    ```java
+    String value = System.getProperty("my.property");
+    ```
+
+#### **(2) 非标准参数（`-X` 系列）**
+- **作用范围**：用于控制 JVM 的行为，但这些参数不是标准化的，可能在不同的 JVM 实现中有所不同。
+- **特点**：
+  - 一般用于设置一些 JVM 的非核心行为。
+  - 示例：`-Xms`、`-Xmx` 用于设置堆内存大小。
+
+#### **(3) 高级参数（`-XX` 系列）**
+- **作用范围**：用于调整 JVM 的内部行为、优化参数，直接影响 JVM 的运行时机制。
+- **特点**：
+  - 这些参数直接控制 JVM 的内部运行逻辑，通常与 JVM 的实现细节密切相关。
+  - 示例：`-XX:+UseG1GC`、`-XX:MaxMetaspaceSize`。
+
 ---
-
-### **6. 在 Linux 中的底层来源**
-- **操作系统属性**（如 `os.name`）：  
-  由 JVM 通过调用 Linux 系统函数（如 `uname()`）获取。
-- **环境变量**（如 `user.home`）：  
-  部分属性（如 `user.home`）会读取 Linux 的环境变量（如 `$HOME`）。
-- **JVM 默认值**（如 `file.separator`）：  
-  JVM 根据 Linux 系统特性硬编码默认值（如路径分隔符 `/`）。
-
----
-
