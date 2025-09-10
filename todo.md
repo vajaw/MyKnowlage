@@ -7,4 +7,6 @@
 - 访问者模式
 - jvm 参数 --todo
 - trino EmbedVersion -- todo
-- io.airlift.bytecode ClassDefinition -- todo 
+- io.airlift.bytecode ClassDefinition -- todo
+- 测试 /Users/wangjiang/Project/IdeaProjects/vajaw/MyKnowlage/bigdata/trino/trino/core/trino-main/src/test/java/io/trino/util/TestEmbedVersion.java
+- spring 
