@@ -130,11 +130,11 @@ public class FutureTask<V> implements RunnableFuture<V> {
   ```
 - 成功时，`outcome` 保存结果：
   ```java
-//  outcome = result;
+  outcome = result;
   ```
 - 失败时，`outcome` 保存异常：
   ```java
-//  outcome = new ExecutionException(ex);
+  outcome = new ExecutionException(ex);
   ```
 #### **(3) 线程的包装**
 - `FutureTask` 通过组合一个 `Thread` 对象来包装线程逻辑：
